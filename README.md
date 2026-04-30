@@ -39,5 +39,6 @@ To run the project on your local machine:
    npm run dev
    ```
 3. Open [http://localhost:3000](http://localhost:3000) in your browser.
+4. END
 
 ---
