@@ -1,0 +1,183 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --light: #ebedeb;
+  --dark: #323232;
+  --primary: #485676;
+  --secondary: #8da092;
+  --tertiary: #97acdc;
+  --accent: #64d8a9;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+  background-color: var(--primary);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@layer components {
+  .full-container {
+    @apply max-w-6xl mx-auto px-4;
+  }
+  .btn {
+    @apply leading-tight px-4 pb-0.5 text-center text-base rounded-3xl font-serif italic font-bold bg-transparent border text-light border-light transition-all;
+  }
+  .btn:hover {
+    @apply text-primary bg-light transition-all duration-75;
+  }
+  .btn-light {
+    @apply btn text-primary bg-light border-none shadow-btn;
+  }
+  .btn-light:hover {
+    @apply text-light bg-tertiary;
+  }
+  .btn-light:active {
+    @apply text-light bg-primary shadow-none outline outline-1 translate-x-0.5 translate-y-1;
+  }
+  .link {
+    @apply font-serif underline mx-1;
+  }
+  .link:hover {
+    @apply italic;
+  }
+  .input {
+    @apply bg-transparent border border-primary text-light rounded py-0.5 px-1 italic cursor-pointer;
+  }
+  .animation-wave {
+    background-position: 0 top;
+    animation: waveX 1.5s infinite ease-in-out reverse;
+    animation-play-state: paused;
+  }
+  .animation-wave:hover {
+    animation-play-state: running;
+  }
+}
+
+a.btn {
+  white-space: nowrap;
+}
+
+.calculations b {
+  @apply font-serif italic font-bold mx-1;
+}
+
+.calculations li {
+  @apply font-serif italic font-bold mx-1;
+}
+
+@keyframes waveX {
+  0%,
+  100% {
+    background-position: 0 top;
+  }
+  50% {
+    background-position: 32px top;
+  }
+}
+
+.textarea {
+  @apply bg-primary border border-light rounded-lg text-light py-0.5 px-2 font-sans font-light text-sm
+  h-24;
+  scrollbar-gutter: stable;
+}
+
+.textarea::-webkit-scrollbar-track {
+  -webkit-appearance: none;
+}
+.textarea::-webkit-scrollbar {
+  @apply w-2.5;
+}
+.textarea::-webkit-scrollbar-thumb {
+  @apply bg-light rounded-3xl border-solid border-4 border-transparent;
+  background-clip: content-box;
+}
+.textarea::-webkit-resizer,
+::-webkit-scrollbar-corner {
+  @apply text-light rounded-3xl bg-light border-solid;
+  border-width: 4px;
+  background-clip: content-box;
+  border-color: transparent;
+}
+
+ol {
+  @apply list-decimal pl-10 my-2;
+}
+
+ol li::marker {
+  @apply text-tertiary font-serif text-lg;
+}
+
+ul {
+  @apply pl-6 my-2;
+}
+
+ul > li {
+  @apply pl-4 relative;
+}
+
+ul > li:before {
+  content: " ";
+  min-height: 6px;
+  min-width: 6px;
+  left: 0px;
+  top: 8px;
+  @apply w-1 border border-tertiary absolute rounded;
+}
+ul > li > ul > li:before {
+  @apply rounded-none;
+}
+ul > li > ul > li > ul > li:before {
+  @apply rounded-none;
+  transform: rotate(45deg);
+}
+
+.table {
+  @apply border-primary;
+}
+
+.table th,
+thead {
+  @apply font-serif italic text-light bg-primary px-1 
+  first:rounded-tl-xl last:rounded-tr-xl;
+}
+
+.table td {
+  @apply border px-1 border-inherit text-center py-0 
+  first:rounded-bl-xl last:rounded-br-xl;
+}
+
+.table tr:last-child {
+  @apply rounded-xl;
+}
+
+.node__root > circle {
+  fill: var(--primary);
+  stroke: var(--primary);
+}
+
+.node__branch > circle {
+  fill: var(--primary);
+  stroke: var(--primary);
+}
+
+/* To fix, make only visible the truncated data 
+.node__branch tspan {
+  display: none;
+}*/
+
+.link__custom {
+  stroke: var(--secondary) !important;
+}
